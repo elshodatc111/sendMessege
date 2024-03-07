@@ -9,8 +9,7 @@ use mrmuminov\eskizuz\types\sms\SmsSingleSmsType;
 class EskizController extends Controller{
     
     public function SendMessege(Request $request){
-        #$eskiz = new Eskiz(config('api.eskiz_email'),config('api.eskiz_password'));
-        $eskiz = new Eskiz('elshodatc1116@gmail.com','XZ5PtofNrSRWN2Xp9n5PrbMJmVt2k59Xym1FquDU');
+        $eskiz = new Eskiz(config('api.eskiz_email'),config('api.eskiz_password'));
         $eskiz->requestAuthLogin();
         $from='4546';
         $mobile_phone = "+998".$request->phone;
@@ -25,7 +24,7 @@ class EskizController extends Controller{
             user_sms_id:$user_sms_id,
             callback_url:$callback_url
         );
-
+// ishladi
         $result = $eskiz->requestSmsSend($singleSmsType);
         if($result->getResponse()->isSuccess == true){
             return response()->json([
